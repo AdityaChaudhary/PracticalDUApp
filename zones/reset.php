@@ -9,8 +9,14 @@ ob_start();
 session_start();
 
 
-$username = "luci";
+$test = "luci";
+$username = "admin";
+$password = "!!ihatelife";
+
+$username2 = "root";
+$password2 = "!!iloveme!!2";
 $message = "";
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!(isset($_POST['username'])) || empty($_POST['username'])) {
@@ -18,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (isset($_POST['username']) && !empty($_POST['username'])) {
-        if($_POST['username'] == $username){
-            $_SESSION["login"] = $username;
+        if ($_POST['username'] == $username || $_POST['username'] == $username2) {
+            $_SESSION["login"] = $test;
             $message = "An email has been sent to your registered email account";
         }else{
             $message = "Invalid Username";

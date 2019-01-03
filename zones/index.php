@@ -10,10 +10,10 @@ session_start();
 
 
 $username = "admin";
-$password = "!!ihatelife";
+$password = "cracker";
 
 $username2 = "root";
-$password2 = "!!iloveme!!2";
+$password2 = "phantom";
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

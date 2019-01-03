@@ -24,9 +24,9 @@ if (isset($_SESSION["login"]) && !empty($_SESSION["login"])) {
     else if($_SESSION['login'] == 'root')
         $key = base64_encode(base64_encode(base64_encode("Congratulations " . $_SESSION['login'] . ". You have cracked this question.")));
     else
-        $key = base64_encode("Congratulations " . $_SESSION['login'] . ". You have cracked this question.");
+        $key = base64_encode("Congratulations student. You have cracked this question.");
 
-    $message = "<b>Welcome " . $_SESSION['login'] . "</b><br>Extract message from below mentioned string to solve this question: <br><i>" . $key . "</i><br><br> <form class='login-form' action='dashboard.php' method='post'><button type='submit' name='logout'>logout</button></form>";
+    $message = "<b>Welcome " . $_SESSION['login'] . "</b><br>Extract message from below mentioned string to solve this question: <br><i>" . $key . "</i><br><br> <a class='login-form' href='/zones/manage.php'><button>Manage Products</button></a><br><br> <form class='login-form' action='dashboard.php' method='post'><button type='submit' name='logout'>logout</button></form>";
 } else {
     $message = "User not logged In <br><br> <a href='index.php'>Login</a>";
 

@@ -1,8 +1,22 @@
 <?php
 
+require_once '../Database.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $message = "<p>Search results for: " . $_GET['search'] . "</p>";
+
+        $db = new Database();
+        $conn = $db->connect();
+        if (!$conn[0]) {
+            echo "Error in database.";
+            exit(1);
+        }
+        $query = "SELECT * FROM products WHERE name LIKE '" . $_GET['search'] . "%'";
+
+        $res = $db->query($conn[1], $query);
+        //print_r($res);
     }
 }
 
@@ -23,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <div class="inner-form">
 
             <div class="input-field second-wrap">
-                <input id="search" name="search" type="text" placeholder="Enter Keywords?"/>
+                <input id="search" name="search" type="text" placeholder="Enter Keywords?"
+                       value="<?php echo $_GET['search']; ?>"/>
             </div>
             <div class="input-field third-wrap">
                 <button class="btn-search" type="submit">
@@ -36,7 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </div>
         </div>
         <?php echo $message; ?>
+
+
+        <br><br>
+        <?php
+        //echo "-->".$res[0]?'asd':'x';
+        //print_r($res);
+        if ($res[0])
+            while ($row = mysqli_fetch_row($res[1])) {
+                echo '<div class="inner-form" style="text-align: center; padding: 5px;">' . $row[0] . '.&nbsp;&nbsp;&nbsp;&nbsp; ' . $row[1] . ' &nbsp;&nbsp;&nbsp;&nbsp;Rs.' . $row[2] . '</div><br>';
+            }
+        ?>
     </form>
+
 </div>
 <script src="js/extention/choices.js"></script>
 <script>
