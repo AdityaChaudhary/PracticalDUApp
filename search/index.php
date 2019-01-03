@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             exit(1);
         }
         $search = $_GET['search'];
-        $query = "SELECT * FROM products WHERE (`name` LIKE '$search%')";
+        $query = "SELECT * FROM products WHERE `name` LIKE '$search%'";
 
         $res = $db->query($conn[1], $query);
         if (!$res[0] && $res[1])
