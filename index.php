@@ -15,8 +15,8 @@
 
 if(isset($_POST['reset'])){
     $db_host = '127.0.0.1';
-    $db_user = 'root';
-    $db_pass = 'root';
+    $db_user = 'user';
+    $db_pass = 'pass';
 
 
 	$queries = array(

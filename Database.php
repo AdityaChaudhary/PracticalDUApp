@@ -10,8 +10,8 @@ class Database
 {
 
     public static $mysql_host = '127.0.0.1';
-    public static $mysql_user = 'root';
-    public static $mysql_pass = 'root';
+    public static $mysql_user = 'user';
+    public static $mysql_pass = 'pass';
     public static $mysql_db = 'du_exam';
     public static $connection;
 
