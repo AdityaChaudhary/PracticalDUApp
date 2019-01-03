@@ -32,7 +32,7 @@ if(isset($_POST['reset'])){
 
 	$queries = array(
 	"CREATE TABLE accounts (username text, password text);",
-	"CREATE TABLE products (pid int, name text, price int);",
+	"CREATE TABLE products (pid int NOT NULL AUTO_INCREMENT, name text, price int);",
 	"INSERT INTO accounts VALUES ('admin','cracker');",
 	"INSERT INTO accounts VALUES ('root','phantom');",
 	"INSERT INTO products VALUES (1,'Shampoo',100);",
