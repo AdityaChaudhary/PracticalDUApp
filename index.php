@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reset DB</title>
+	<title>DU Practical Examination</title>
 </head>
-<body>
-<h3>Reset DB</h3>
+<body style="font-family:sans-serif;font-size:20px;margin-top:10%;margin-left:10%">
+<h3>DU Practical Examination</h3>
 
-<form method="post"><input type="submit" name="reset" value="Reset"></form>
+<p>
+	Click here to Reset the database:
+	<form method="post"><input type="submit" name="reset" value="Reset"></form>
+</p>
 
 <?php
 
