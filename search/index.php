@@ -2,6 +2,7 @@
 
 require_once '../Database.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -13,10 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo "Error in database.";
             exit(1);
         }
-        $query = "SELECT * FROM products WHERE name LIKE '" . $_GET['search'] . "%'";
+        $search = $_GET['search'];
+        $query = "SELECT * FROM products WHERE (`name` LIKE '$search%')";
 
         $res = $db->query($conn[1], $query);
-        //print_r($res);
+        if (!$res[0] && $res[1])
+            print_r($res[1]);
+        //print_r(mysqli_errno($conn[1]));
+
     }
 }
 

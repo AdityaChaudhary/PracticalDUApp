@@ -24,6 +24,8 @@ class Database
             //exit();
             return [false, null];
         }
+        //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
         return [true, $connection];
     }
 
@@ -34,7 +36,7 @@ class Database
                 //mysqli_free_result($result);
                 return [true, $result];
             } else {
-                return [false, null];
+                return [false, mysqli_error($connection)];
             }
 
         } catch (Exception $e) {
